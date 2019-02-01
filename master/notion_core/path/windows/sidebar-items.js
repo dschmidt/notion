@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["ARCH",""],["OS",""]],"fn":[["archive_extension",""],["create_file_symlink",""],["default_notion_home",""],["launchbin_file",""],["launchscript_file",""],["node_image_3p_bin_dir",""],["node_image_bin_dir",""],["notion_file",""],["shim_file",""]],"struct":[["NoDataLocalDir",""]]});

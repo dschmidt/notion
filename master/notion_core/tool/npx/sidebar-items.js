@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Npx","Represents a `npx` executable."],["NpxNotAvailableError",""]]});

@@ -1,0 +1,12 @@
+var ALIASES = {};
+ALIASES["archive"] = {};
+ALIASES["launchbin"] = {};
+ALIASES["launchscript"] = {};
+ALIASES["node"] = {};
+ALIASES["notion"] = {};
+ALIASES["notion_core"] = {};
+ALIASES["notion_fail"] = {};
+ALIASES["npm"] = {};
+ALIASES["npx"] = {};
+ALIASES["progress_read"] = {};
+ALIASES["yarn"] = {};

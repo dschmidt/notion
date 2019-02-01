@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["is_global_npm_install",""]],"struct":[["Npm","Represents a `npm` executable."]]});

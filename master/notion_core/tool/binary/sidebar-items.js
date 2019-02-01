@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Binary","Represents a delegated binary executable."],["NoToolChainError",""]]});

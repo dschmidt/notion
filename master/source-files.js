@@ -1,0 +1,13 @@
+var N = null;var sourcesIndex = {};
+sourcesIndex["archive"] = {"name":"","dirs":[],"files":["lib.rs","tarball.rs","zip.rs"]};
+sourcesIndex["launchbin"] = {"name":"","dirs":[],"files":["launchbin.rs"]};
+sourcesIndex["launchscript"] = {"name":"","dirs":[],"files":["launchscript.rs"]};
+sourcesIndex["node"] = {"name":"","dirs":[],"files":["node.rs"]};
+sourcesIndex["notion"] = {"name":"","dirs":[{"name":"command","dirs":[],"files":["activate.rs","config.rs","current.rs","deactivate.rs","fetch.rs","help.rs","install.rs","mod.rs","pin.rs","use_.rs","version.rs"]}],"files":["error.rs","notion.rs"]};
+sourcesIndex["notion_core"] = {"name":"","dirs":[{"name":"config","dirs":[],"files":["mod.rs","serial.rs"]},{"name":"distro","dirs":[],"files":["error.rs","mod.rs","node.rs","yarn.rs"]},{"name":"inventory","dirs":[],"files":["mod.rs","serial.rs"]},{"name":"manifest","dirs":[],"files":["mod.rs","serial.rs"]},{"name":"path","dirs":[],"files":["mod.rs","unix.rs","windows.rs"]},{"name":"platform","dirs":[],"files":["mod.rs"]},{"name":"plugin","dirs":[],"files":["mod.rs","serial.rs"]},{"name":"shell","dirs":[],"files":["bash.rs","mod.rs"]},{"name":"tool","dirs":[],"files":["binary.rs","mod.rs","node.rs","npm.rs","npx.rs","script.rs","yarn.rs"]},{"name":"toolchain","dirs":[],"files":["mod.rs","serial.rs"]},{"name":"version","dirs":[],"files":["mod.rs","serial.rs"]}],"files":["env.rs","event.rs","fs.rs","lib.rs","monitor.rs","project.rs","session.rs","shim.rs","style.rs"]};
+sourcesIndex["notion_fail"] = {"name":"","dirs":[],"files":["lib.rs"]};
+sourcesIndex["npm"] = {"name":"","dirs":[],"files":["npm.rs"]};
+sourcesIndex["npx"] = {"name":"","dirs":[],"files":["npx.rs"]};
+sourcesIndex["progress_read"] = {"name":"","dirs":[],"files":["lib.rs"]};
+sourcesIndex["yarn"] = {"name":"","dirs":[],"files":["yarn.rs"]};
+createSourceSidebar();
