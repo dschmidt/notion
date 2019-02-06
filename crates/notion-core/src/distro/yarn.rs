@@ -1,6 +1,6 @@
 //! Provides the `YarnDistro` type, which represents a provisioned Yarn distribution.
 
-use std::fs::{rename, File};
+use std::fs::File;
 use std::path::PathBuf;
 use std::string::ToString;
 
@@ -17,6 +17,8 @@ use version::VersionSpec;
 
 use notion_fail::{Fallible, ResultExt};
 use semver::Version;
+
+use fs_extra::dir::{move_dir, CopyOptions};
 
 #[cfg(feature = "mock-network")]
 use mockito;
@@ -123,9 +125,13 @@ impl Distro for YarnDistro {
             .unknown()?;
 
         let version_string = self.version.to_string();
-        rename(
+        let mut options = CopyOptions::new();
+        options.copy_inside = true;
+
+        move_dir(
             dest.join(path::yarn_archive_root_dir_name(&version_string)),
             path::yarn_image_dir(&version_string)?,
+            &options,
         )
         .unknown()?;
 

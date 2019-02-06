@@ -1,6 +1,6 @@
 //! Provides the `NodeDistro` type, which represents a provisioned Node distribution.
 
-use std::fs::{read_to_string, rename, File};
+use std::fs::{read_to_string, File};
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::string::ToString;
@@ -19,6 +19,8 @@ use version::VersionSpec;
 
 use notion_fail::{Fallible, ResultExt};
 use semver::Version;
+
+use fs_extra::dir::{move_dir, CopyOptions};
 
 #[cfg(feature = "mock-network")]
 use mockito;
@@ -189,10 +191,14 @@ impl Distro for NodeDistro {
 
         ensure_containing_dir_exists(&dest)?;
 
-        rename(
+        let mut options = CopyOptions::new();
+        options.copy_inside = true;
+
+        move_dir(
             temp.path()
                 .join(path::node_archive_root_dir_name(&version_string)),
             dest,
+            &options,
         )
         .unknown()?;
 

@@ -27,6 +27,8 @@ use style::progress_spinner;
 use tool::ToolSpec;
 use version::VersionSpec;
 
+use fs_extra::file::{move_file, CopyOptions};
+
 pub(crate) mod serial;
 
 #[cfg(feature = "mock-network")]
@@ -373,7 +375,9 @@ fn resolve_node_versions() -> Fallible<serial::NodeIndex> {
 
             let index_cache_file = path::node_index_file()?;
             ensure_containing_dir_exists(&index_cache_file)?;
-            cached.persist(index_cache_file).unknown()?;
+            // We need to copy here because cached.persist moves the file which is not supported if /tmp is on a different filesystem
+            let options = CopyOptions::new();
+            move_file(cached.path(), index_cache_file, &options).unknown()?;
 
             let expiry: NamedTempFile = NamedTempFile::new().unknown()?;
 
@@ -393,7 +397,8 @@ fn resolve_node_versions() -> Fallible<serial::NodeIndex> {
 
             let index_expiry_file = path::node_index_expiry_file()?;
             ensure_containing_dir_exists(&index_expiry_file)?;
-            expiry.persist(index_expiry_file).unknown()?;
+            // We need to copy here because expiry.persist moves the file which is not supported if /tmp is on a different filesystem
+            move_file(expiry.path(), index_expiry_file, &options).unknown()?;
 
             let serial: serial::NodeIndex = serde_json::de::from_str(&response_text).unknown()?;
 

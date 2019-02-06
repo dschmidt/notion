@@ -8,6 +8,7 @@ extern crate console;
 extern crate detect_indent;
 extern crate dirs;
 extern crate envoy;
+extern crate fs_extra;
 extern crate indicatif;
 extern crate lazycell;
 #[cfg(feature = "mock-network")]
